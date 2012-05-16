@@ -20,6 +20,6 @@ class ActivatePam < ActiveRecord::Migration
   end
 
   def down
-	 AuthSourcePam.find_bytype("AuthSourcePam").destroy
+	  AuthSourcePam.find_by_type("AuthSourcePam").destroy
   end
 end
