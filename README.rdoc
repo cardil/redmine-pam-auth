@@ -1,3 +1,9 @@
-= redmine_pam_auth
+= Redmine PAM auth plugin
 
-Description goes here
+Adds PAM authorization to Redmine. Requires `rpam`
+gem and group `shadow` to by added to redmine user.
+
+== Requirements
+
+Plugin requires that the user which runs the Redmine application, had a shadow group.
+It is necessary that the user can use the PAM auth mechanism.

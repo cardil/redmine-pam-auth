@@ -1,4 +1,5 @@
 # Copyright (C) 2011  David Villa Alises
+# Copyright (C) 2012  Krzysztof Suszynski
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
