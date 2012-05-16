@@ -16,26 +16,10 @@
 
 class ActivatePam < ActiveRecord::Migration
   def up
-    source = AuthSourcePam.new(
-        :name => "Pam",
-        :host => "localhost",
-        :port => 1,
-        :account => "user",
-        :account_password => "pass",
-        :base_dn => "app",
-        :attr_login => "name",
-        :attr_firstname =>"firstname",
-        :attr_lastname => "lastname",
-        :attr_mail => "email",
-        :onthefly_register => TRUE,
-        :tls => FALSE,
-        :filter => ""
-    )
-    source.save
+    AuthSourcePam.create :name => "Pam", :host => "localhost", :port => 1, :account => "user", :account_password => "pass", :base_dn => "app", :attr_login => "name", :attr_firstname =>"firstname", :attr_lastname => "lastname", :attr_mail => "email", :onthefly_register => TRUE, :tls => FALSE, :filter => ""
   end
 
   def down
-    source = AuthSourcePam.where("type = ?", "AuthSourcePam")
-    source[0].destroy
+	 AuthSourcePam.find_bytype("AuthSourcePam").destroy
   end
 end
