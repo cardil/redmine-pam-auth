@@ -1,5 +1,3 @@
-require 'app/models/auth_source_pam'
-
 Redmine::Plugin.register :redmine_pam_auth do
   name 'Redmine Pam Auth plugin'
   author 'Krzysztof Suszynski'
