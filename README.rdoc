@@ -1,9 +1,35 @@
 = Redmine PAM auth plugin
 
-Adds PAM authorization to Redmine. Requires `rpam`
-gem and group `shadow` to by added to redmine user.
+Adds PAM authorization to Redmine. Requires +rpam+
+gem and group +shadow+ to by added to redmine user.
 
 == Requirements
 
-Plugin requires that the user which runs the Redmine application, had a shadow group.
-It is necessary that the user can use the PAM auth mechanism.
+Plugin requires that the user which runs the Redmine application, had a 
++shadow+ group. It is necessary that the user can use the PAM auth 
+mechanism.
+
+== Installation
+
+Before installing make sure to stop redmine.
+
+1. +cd [redmine-install-dir]/plugins+
+2. +export RAILS_ENV=production+
+3. +git clone https://github.com/cardil/redmine-pam-auth.git redmine_pam_auth+
+4. +cd ../+
+5. +rake redmine:migrate:plugins+
+
+After this steps you can switch back on redmine. Existing users will gain 
+PAM auth method (Look at Administration > Users).
+
+== Uninstall
+
+Before installing make sure to stop redmine and before that to disable 
+PAM auth method for all users (Look at Administration > Users)
+
+1. +cd [redmine-install-dir]+
+2. +export RAILS_ENV=production+
+3. +rake redmine:migrate:plugins NAME=redmine_pam_auth VERSION=0+
+4. +rm -Rf plugins/redmine_pam_auth+
+
+After this steps you can switch back on redmine.
