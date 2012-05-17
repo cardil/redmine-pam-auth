@@ -18,6 +18,7 @@ Before installing make sure to stop redmine.
 3. <tt>git clone git://github.com/cardil/redmine-pam-auth.git redmine_pam_auth</tt>
 4. <tt>cd ..</tt>
 5. <tt>rake redmine:plugins:migrate</tt>
+6. <tt>bundle install --without development test</tt>
 
 After this steps you can switch back on redmine. Existing users will gain 
 PAM auth method (Look at Administration > Users).
