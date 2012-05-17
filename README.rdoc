@@ -15,9 +15,9 @@ Before installing make sure to stop redmine.
 
 1. <tt>cd [redmine-install-dir]/plugins</tt>
 2. <tt>export RAILS_ENV=production</tt>
-3. <tt>git clone https://github.com/cardil/redmine-pam-auth.git redmine_pam_auth</tt>
-4. <tt>cd ../</tt>
-5. <tt>rake redmine:migrate:plugins</tt>
+3. <tt>git clone git://github.com/cardil/redmine-pam-auth.git redmine_pam_auth</tt>
+4. <tt>cd ..</tt>
+5. <tt>rake redmine:plugins:migrate</tt>
 
 After this steps you can switch back on redmine. Existing users will gain 
 PAM auth method (Look at Administration > Users).
@@ -29,7 +29,7 @@ PAM auth method for all users (Look at Administration > Users)
 
 1. <tt>cd [redmine-install-dir]</tt>
 2. <tt>export RAILS_ENV=production</tt>
-3. <tt>rake redmine:migrate:plugins NAME=redmine_pam_auth VERSION=0</tt>
+3. <tt>rake redmine:plugins:migrate NAME=redmine_pam_auth VERSION=0</tt>
 4. <tt>rm -Rf plugins/redmine_pam_auth</tt>
 
 After this steps you can switch back on redmine.
