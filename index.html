@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Redmine PAM Auth by cardil</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Redmine PAM Auth</h1>
+        <p>Adds PAM authorization to Redmine</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/cardil/redmine-pam-auth" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/cardil/redmine-pam-auth/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/cardil/redmine-pam-auth/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>Redmine PAM auth plugin</h1>
+
+<p>Adds PAM authorization to Redmine. Requires <code>rpam</code>
+gem and group <code>shadow</code> to by added to redmine user.</p>
+
+<h2>Requirements</h2>
+
+<p>Plugin requires that the user which runs the Redmine application, had a 
+<code>shadow</code> group. It is necessary that the user can use the PAM auth 
+mechanism.</p>
+
+<h2>Installation</h2>
+
+<p>Before installing make sure to stop redmine.</p>
+
+<ol>
+<li><code>cd [redmine-install-dir]/plugins</code></li>
+<li><code>export RAILS_ENV=production</code></li>
+<li><code>git clone git://github.com/cardil/redmine-pam-auth.git redmine_pam_auth</code></li>
+<li><code>cd ..</code></li>
+<li><code>rake redmine:plugins:migrate</code></li>
+<li><code>bundle install --without development test</code></li>
+</ol><p>After this steps you can switch back on redmine. Existing users will gain 
+PAM auth method (Look at Administration &gt; Users).</p>
+
+<h2>Uninstall</h2>
+
+<p>Before installing make sure to stop redmine and before that to disable 
+PAM auth method for all users (Look at Administration &gt; Users)</p>
+
+<ol>
+<li><code>cd [redmine-install-dir]</code></li>
+<li><code>export RAILS_ENV=production</code></li>
+<li><code>rake redmine:plugins:migrate NAME=redmine_pam_auth VERSION=0</code></li>
+<li><code>rm -Rf plugins/redmine_pam_auth</code></li>
+</ol><p>After this steps you can switch back on redmine.</p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/cardil">cardil</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    
+  </body>
+</html>
